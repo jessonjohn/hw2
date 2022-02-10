@@ -68,12 +68,190 @@
 
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
+Movie.destroy_all
+Person.destroy_all
+Role.destroy_all
+
 # TODO!
+#puts Movie.all.count
 
 # Generate models and tables, according to the domain model
 # TODO!
 
 # Insert data into your database that reflects the sample data shown above
+
+values = {
+    title: "Batman Begins", 
+    year: 2005, 
+    rating: "PG-13", 
+    director: "Christopher Nolan"
+}
+movie = Movie.new(values)
+movie.save
+
+values = {
+    title: "The Dark Knight", 
+    year: 2008, 
+    rating: "PG-13", 
+    director: "Christopher Nolan"
+}
+movie = Movie.new(values)
+movie.save
+values = {
+    title: "The Dark Knight Rises", 
+    year: 2012, 
+    rating: "PG-13", 
+    director: "Christopher Nolan"
+}
+movie = Movie.new(values)
+movie.save
+#puts Movie.all.count
+
+movies_all = Movie.all
+# puts Movie.all.inspect
+
+# Person
+values = {
+    first_name: "Christian", 
+    last_name: "Bale" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Micheal", 
+    last_name: "Caine" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Liam", 
+    last_name: "Neeson" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Katie", 
+    last_name: "Holmes" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Gary", 
+    last_name: "Oldman" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Heath", 
+    last_name: "Ledger" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Aaron", 
+    last_name: "Eckhart" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Maggie", 
+    last_name: "Gylenhaal" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Tom", 
+    last_name: "Hardy" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Joseph", 
+    last_name: "Gordon-Levitt" 
+}
+person = Person.new(values)
+person.save
+
+values = {
+    first_name: "Anne", 
+    last_name: "Hathaway" 
+}
+person = Person.new(values)
+person.save
+
+# Roles
+
+values = {
+    char_name: "Bruce Wayne"
+}
+role = Role.new(values)
+role.save
+
+values = {
+    char_name: "Alfred" 
+}
+role = Role.new(values)
+role.save
+
+values = {
+    char_name: "Ra's Al Ghul" 
+}
+role = Role.new(values)
+role.save
+
+values = {
+    char_name: "Rachel Dawes"
+}
+role = Role.new(values)
+role.save
+
+values = {
+    char_name: "Commissioner Gordon"
+}
+role = Role.new(values)
+role.save
+
+values = {
+    char_name: "Joker"
+}
+role = Role.new(values)
+role.save
+
+values = {
+    char_name: "Harvey Dent"
+}
+role = Role.new(values)
+role.save
+
+values = {
+    char_name: "Bane"
+}
+role = Role.new(values)
+role.save
+
+values = {
+    char_name: "John Blake"
+}
+role = Role.new(values)
+role.save
+
+values = {
+    char_name: "Selina Kyle"
+}
+role = Role.new(values)
+role.save
+
+# movies = Movie.where({title: "Batman Begins"})
+# puts movies.inspect
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
@@ -82,8 +260,14 @@ puts "Movies"
 puts "======"
 puts ""
 
+
 # Query the movies data and loop through the results to display the movies output
 # TODO!
+
+for movies in movies_all
+    puts "#{movies.title.ljust(21)}   #{movies.year}   #{movies.rating}   #{movies.director}"
+end
+
 
 # Prints a header for the cast output
 puts ""
@@ -93,3 +277,6 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+
+batmanbegins = Movie.where({title: "Batman Begins"})[0]
+puts batmanbegins.read_attribute(:title)
