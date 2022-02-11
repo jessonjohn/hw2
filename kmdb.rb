@@ -81,174 +81,235 @@ Role.destroy_all
 # Insert data into your database that reflects the sample data shown above
 
 values = {
-    title: "Batman Begins", 
-    year: 2005, 
-    rating: "PG-13", 
-    director: "Christopher Nolan"
+    name: "Christopher Nolan"   
 }
-movie = Movie.new(values)
-movie.save
+christopher_nolan = Person.new(values)
+christopher_nolan.save
+
+values = {
+    title: "Batman Begins", 
+    year_released: 2005, 
+    rated: "PG-13", 
+    person_id: christopher_nolan.id
+}
+batman_begins = Movie.new(values)
+batman_begins.save
 
 values = {
     title: "The Dark Knight", 
-    year: 2008, 
-    rating: "PG-13", 
-    director: "Christopher Nolan"
+    year_released: 2008, 
+    rated: "PG-13", 
+    person_id: christopher_nolan.id
 }
-movie = Movie.new(values)
-movie.save
+the_dark_knight = Movie.new(values)
+the_dark_knight.save
+
 values = {
     title: "The Dark Knight Rises", 
-    year: 2012, 
-    rating: "PG-13", 
-    director: "Christopher Nolan"
+    year_released: 2012, 
+    rated: "PG-13", 
+    person_id: christopher_nolan.id
 }
-movie = Movie.new(values)
-movie.save
+the_dark_knight_rises = Movie.new(values)
+the_dark_knight_rises.save
+
 #puts Movie.all.count
 
-movies_all = Movie.all
-# puts Movie.all.inspect
 
 # Person
-values = {
-    first_name: "Christian", 
-    last_name: "Bale" 
-}
-person = Person.new(values)
-person.save
 
 values = {
-    first_name: "Micheal", 
-    last_name: "Caine" 
+    name: "Christian Bale"   
 }
-person = Person.new(values)
-person.save
+christian_bale = Person.new(values)
+christian_bale.save
 
 values = {
-    first_name: "Liam", 
-    last_name: "Neeson" 
+    name: "Micheal Caine"
 }
-person = Person.new(values)
-person.save
+micheal_caine = Person.new(values)
+micheal_caine.save
 
 values = {
-    first_name: "Katie", 
-    last_name: "Holmes" 
+    name: "Liam Neeson"
 }
-person = Person.new(values)
-person.save
+liam_neeson = Person.new(values)
+liam_neeson.save
 
 values = {
-    first_name: "Gary", 
-    last_name: "Oldman" 
+    name: "Katie Holmes"
 }
-person = Person.new(values)
-person.save
+katie_holmes = Person.new(values)
+katie_holmes.save
 
 values = {
-    first_name: "Heath", 
-    last_name: "Ledger" 
+    name: "Gary Oldman"
 }
-person = Person.new(values)
-person.save
+gary_oldman = Person.new(values)
+gary_oldman.save
 
 values = {
-    first_name: "Aaron", 
-    last_name: "Eckhart" 
+    name: "Heath Ledger"
 }
-person = Person.new(values)
-person.save
+heath_ledger = Person.new(values)
+heath_ledger.save
 
 values = {
-    first_name: "Maggie", 
-    last_name: "Gylenhaal" 
+    name: "Aaron Eckhart"
 }
-person = Person.new(values)
-person.save
+aaron_eckhart = Person.new(values)
+aaron_eckhart.save
 
 values = {
-    first_name: "Tom", 
-    last_name: "Hardy" 
+    name: "Maggie Gylenhaal"
 }
-person = Person.new(values)
-person.save
+maggie_gylenhaal = Person.new(values)
+maggie_gylenhaal.save
 
 values = {
-    first_name: "Joseph", 
-    last_name: "Gordon-Levitt" 
+    name: "Tom Hardy"
 }
-person = Person.new(values)
-person.save
+tom_hardy = Person.new(values)
+tom_hardy.save
 
 values = {
-    first_name: "Anne", 
-    last_name: "Hathaway" 
+    name: "Joseph Gordonn-Levitt"
 }
-person = Person.new(values)
-person.save
+joseph_gordon_levitt = Person.new(values)
+joseph_gordon_levitt.save
+
+values = {
+    name: "Anne Hathaway" 
+}
+anne_hathaway = Person.new(values)
+anne_hathaway.save
 
 # Roles
 
 values = {
-    char_name: "Bruce Wayne"
+    movie_id: batman_begins.id,
+    person_id: christian_bale.id,
+    character_name: "Bruce Wayne"
+}
+bruce_wayne = Role.new(values)
+bruce_wayne.save
+
+values = {
+    movie_id: batman_begins.id,
+    person_id: micheal_caine.id,
+    character_name: "Alfred" 
+}
+alfred = Role.new(values)
+alfred.save
+
+values = {
+    movie_id: batman_begins.id,
+    person_id: liam_neeson.id,
+    character_name: "Ra's Al Ghul" 
+}
+ra_al_ghul = Role.new(values)
+ra_al_ghul.save
+
+values = {
+    movie_id: batman_begins.id,
+    person_id: katie_holmes.id,
+    character_name: "Rachel Dawes"
+}
+rachel_dawes = Role.new(values)
+rachel_dawes.save
+
+values = {
+    movie_id: batman_begins.id,
+    person_id: gary_oldman.id,
+    character_name: "Commissioner Gordon"
+}
+commissioner_gordon_1 = Role.new(values)
+commissioner_gordon_1.save
+
+values = {
+    movie_id: the_dark_knight.id,
+    person_id: christian_bale.id,
+    character_name: "Bruce Wayne"
+}
+bruce_wayne_1 = Role.new(values)
+bruce_wayne_1.save
+
+
+
+values = {
+    movie_id: the_dark_knight.id,
+    person_id: heath_ledger.id,
+    character_name: "Joker"
+}
+joker = Role.new(values)
+joker.save
+
+values = {
+    movie_id: the_dark_knight.id,
+    person_id: aaron_eckhart.id,
+    character_name: "Harvey Dent"
+}
+harvey_dent = Role.new(values)
+harvey_dent.save
+
+values = {
+    movie_id: the_dark_knight.id,
+    person_id: micheal_caine.id,
+    character_name: "Alfred" 
+}
+alfred_1 = Role.new(values)
+alfred_1.save
+
+values = {
+    movie_id: the_dark_knight.id,
+    person_id: maggie_gylenhaal.id,
+    character_name: "Rachel Dawes"
+}
+rachel_dawes_1 = Role.new(values)
+rachel_dawes_1.save
+
+
+
+values = {
+    movie_id: the_dark_knight_rises.id,
+    person_id: christian_bale.id,
+    character_name: "Bruce Wayne"
+}
+bruce_wayne_2 = Role.new(values)
+bruce_wayne_2.save
+
+values = {
+    movie_id: the_dark_knight_rises.id,
+    person_id: gary_oldman.id,
+    character_name: "Commissioner Gordon"
+}
+commissioner_gordon_2 = Role.new(values)
+commissioner_gordon_2.save
+
+
+values = {
+    movie_id: the_dark_knight_rises.id,
+    person_id: tom_hardy.id,
+    character_name: "Bane"
+}
+bane = Role.new(values)
+bane.save
+
+values = {
+    movie_id: the_dark_knight_rises.id,
+    person_id: joseph_gordon_levitt.id,
+    character_name: "John Blake"
 }
 role = Role.new(values)
 role.save
 
 values = {
-    char_name: "Alfred" 
+    movie_id: the_dark_knight_rises.id,
+    person_id: anne_hathaway.id,
+    character_name: "Selina Kyle"
 }
-role = Role.new(values)
-role.save
-
-values = {
-    char_name: "Ra's Al Ghul" 
-}
-role = Role.new(values)
-role.save
-
-values = {
-    char_name: "Rachel Dawes"
-}
-role = Role.new(values)
-role.save
-
-values = {
-    char_name: "Commissioner Gordon"
-}
-role = Role.new(values)
-role.save
-
-values = {
-    char_name: "Joker"
-}
-role = Role.new(values)
-role.save
-
-values = {
-    char_name: "Harvey Dent"
-}
-role = Role.new(values)
-role.save
-
-values = {
-    char_name: "Bane"
-}
-role = Role.new(values)
-role.save
-
-values = {
-    char_name: "John Blake"
-}
-role = Role.new(values)
-role.save
-
-values = {
-    char_name: "Selina Kyle"
-}
-role = Role.new(values)
-role.save
+selina_kyle = Role.new(values)
+selina_kyle.save
 
 # movies = Movie.where({title: "Batman Begins"})
 # puts movies.inspect
@@ -264,8 +325,11 @@ puts ""
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
-for movies in movies_all
-    puts "#{movies.title.ljust(21)}   #{movies.year}   #{movies.rating}   #{movies.director}"
+movies_all = Movie.all
+
+for movie in movies_all
+    director = Person.where({id: movie.person_id})[0]
+    puts "#{movie.title.ljust(21)}   #{movie.year_released}   #{movie.rated}   #{director.name}"
 end
 
 
@@ -278,5 +342,15 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
 
-batmanbegins = Movie.where({title: "Batman Begins"})[0]
-puts batmanbegins.read_attribute(:title)
+roles_all = Role.all
+
+for role in roles_all
+    movie_name = Movie.where({id: role.movie_id})[0]
+    actor_name = Person.where({id: role.person_id})[0]
+    puts "#{movie_name.title.ljust(21)}   #{actor_name.name.ljust(21)}   #{role.character_name}"
+end
+
+
+
+
+
